@@ -1,40 +1,66 @@
 {
-    "$schema": "https://mintlify.com/docs.json",
-    "theme": "linden",
-    "name": "nonreaden",
-    "colors": {
-      "primary": "#406ba3",
-      "light": "#406ba3",
-      "dark": "#406ba3"
-    },
-    "favicon": "/pengu.ico",
-    "navigation": {
-      "groups": [
-        {
-          "group": "Getting started",
-          "icon": "rocket",
-          "pages": [
-            "index",
-            "help",
-            "update"
-          ]
-        },
-        {
-          "group": "Libraries",
-          "icon": "book",
-          "pages": [
-            "libraries/file"
-          ]
-        }
-      ],
-      "global": {
-        "anchors": [
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "linden",
+  "name": "nonreaden",
+  "colors": {
+    "primary": "#406ba3",
+    "light": "#406ba3",
+    "dark": "#406ba3"
+  },
+  "favicon": "/pengu.ico",
+  "navigation": {
+    "languages": [
+      {
+        "language": "en",
+        "groups": [
           {
-            "anchor": "Assembly",
-            "href": "https://assembly.lol/",
-            "icon": "radio"
+            "group": "Getting started",
+            "icon": "rocket",
+            "pages": [
+              "en/index",
+              "en/help",
+              "en/update"
+            ]
+          },
+          {
+            "group": "Libraries",
+            "icon": "book",
+            "pages": [
+              "en/libraries/file"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ru",
+        "groups": [
+          {
+            "group": "Начало работы",
+            "icon": "rocket",
+            "pages": [
+              "ru/index",
+              "ru/help",
+              "ru/update"
+            ]
+          },
+          {
+            "group": "Библиотеки",
+            "icon": "book",
+            "pages": [
+              "ru/libraries/file"
+            ]
           }
         ]
       }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Assembly",
+          "href": "https://assembly.lol/",
+          "icon": "radio"
+        }
+      ]
     }
   }
+}
