@@ -1,0 +1,158 @@
+---
+title: "Файловая Система"
+icon: "file"
+description: "Разработчик @acrnxy"
+---
+
+## Установка
+
+```lua
+http.get("https://pastebin.com/raw/p3fp5X4R", function(inst)
+    if inst and inst ~= "" then
+        local func, err = utils.loadstring(inst)
+
+        if func then
+            os.execute('mkdir "lua"')
+
+            local f = io.open("lua/fs.lua", "w")
+            if f then
+                f:write(inst)
+                f:close()
+                print("Successfully downloaded")
+            end
+        end
+    else
+        print("Failed to download")
+    end
+end)
+```
+
+## Описание
+
+По умолчанию папка `workspace\` **создаётся в том же каталоге, откуда ззапущен клиент**
+**Например**
+
+- Если ваш клиент находится в папке `C:\Users\User\assembly\client.exe`
+- Тогда папка `workspace\` будет располагаться в папке `C:\Users\User\assembly\workspace\`
+
+## Документация
+
+### writefile
+
+Создает или перезаписывает файл. `writefile(string: path, string: content)`
+
+```lua
+writefile("folder/zaza.txt", "Hello World")
+```
+
+### appendfile
+
+Добавляет текст в конце файла. `appendfile(string: path, string: content)`
+
+```lua
+appendfile("folder/zaza.txt", "Hello World")
+```
+
+### delfile
+
+Удаляет файл. `delfile(string: path)`
+
+```lua
+delfile("folder/zaza.txt")
+```
+
+### loadfile
+
+ЗЗагружает код из файла с помощью `utils.loadstring`. `loadfile(string: path, string: content)`
+
+```lua
+loadfile("folder/zaza.txt")()
+```
+
+### readfile
+
+Читает внутренность файла. `readfile(string: path)`
+
+```lua
+readfile("folder/zaza.txt")
+```
+
+### isfile
+
+Проверяет существование файла. `isfile(string: path)`
+
+```lua
+isfile("folder/zaza.txt")
+```
+
+### listfiles
+
+Получение списка всех файлов в пути. Возвращает список названий файлов. `listfiles(string: path)`
+
+```lua
+listfiles("folder")
+```
+
+### makefolder
+
+Создает папку по пути `workspace\`. `makefolder(string: path)`
+
+```lua
+makefolder("folder")
+```
+
+### isfolder
+
+Проверяет существование папки. `isfolder(string: path)`
+
+```lua
+isfolder("folder")
+```
+
+### delfolder
+
+Удаляет папку. `delfolder(string: path)`
+
+```lua
+delfolder("folder")
+```
+
+### listfolders
+
+Список папок в пути. Возвращает список названий папок. `listfolders(string: path)`
+
+```lua
+listfolders("")
+```
+
+## Пример использования
+
+```lua
+require("fs") -- вызов библиотеки
+
+makefolder("folder")
+writefile("folder/file.txt", "Line 1\n")
+appendfile("folder/file.txt", "Line 2")
+
+local content = readfile("folder/file.txt")
+print("readfile:", content)
+
+print("isfile:", isfile("folder/file.txt"))
+print("isfolder:", isfolder("folder"))
+
+local files = listfiles("folder")
+for _, f in ipairs(files) do
+    print("file:", f)
+end
+
+local folders = listfolders("")
+for _, f in ipairs(folders) do
+    print("folder:", f)
+end
+
+writefile("folder/code.lua", "return function() print('loadfile') end")
+loadfile("folder/code.lua")()
+
+delfile("folder/file.txt")
+delfolder("folder")
+```
