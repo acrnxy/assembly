@@ -17,6 +17,7 @@
             "group": "Getting started",
             "icon": "rocket",
             "pages": [
+              "en/reg",
               "en/index",
               "en/help",
               "en/update"
@@ -38,6 +39,7 @@
             "group": "Начало работы",
             "icon": "rocket",
             "pages": [
+              "ru/reg",
               "ru/index",
               "ru/help",
               "ru/update"
